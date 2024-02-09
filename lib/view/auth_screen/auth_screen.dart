@@ -15,6 +15,7 @@ class _AuthScreenState extends State<AuthScreen> {
 
   bool inLogin = false;
   String currentCountryCode = '+855'; //value of country codes
+  TextEditingController mobileController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -144,8 +145,11 @@ class _AuthScreenState extends State<AuthScreen> {
                           ),
                         ],
                       ),
-                      CommonFunction.blankSpace(height*0.01, 0),
+                      CommonFunction.blankSpace(
+                          height*0.01, 0
+                      ),
                       Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           InkWell(
                             onTap:(){
@@ -173,15 +177,120 @@ class _AuthScreenState extends State<AuthScreen> {
                                     fontWeight: FontWeight.w600,),
                               ),
                             ),
-                          )
+                          ),SizedBox(
+                            height: height*0.06,
+                            width: width*0.64,
+                            child: TextFormField(
+                              //call the controller
+                              controller: mobileController,
+                              cursorColor: black,
+                              style: textTheme.displaySmall,
+                              keyboardType: TextInputType.number,
+                              decoration: InputDecoration(
+                                hintText: 'Mobile number',
+                                hintStyle: textTheme.bodySmall,
+                                border: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      color: grey
+                                  ),
+                                ),
+                                focusedBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      color: secondaryColor
+                                  ),
+                                ),
+                                disabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      color: grey
+                                  ),
+                                ),
+                                enabledBorder: OutlineInputBorder(
+                                  borderRadius: BorderRadius.circular(5),
+                                  borderSide: BorderSide(
+                                      color: grey
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
-                      )
+                      ),
+                      CommonFunction.blankSpace(
+                          height*0.02, 0),
+                      ElevatedButton(
+                          onPressed: (){},
+                          style:ElevatedButton.styleFrom(
+                              minimumSize: Size(
+                                  width*0.80,
+                                  height*0.06,
+                              ),backgroundColor: amber,
+                          ),
+                          child: Text('Continue',
+                        style: textTheme.displaySmall!.copyWith(
+                            fontWeight: FontWeight.w600),
+                          ),
+                      ),
+                      CommonFunction.blankSpace(height*0.02, 0),
+                      RichText(
+                        text: TextSpan(
+                          children: [
+                            TextSpan(
+                            text: 'By Continuing you agree to Amazon\'s ',
+                            style: textTheme.labelMedium,
+                            ),
+                            TextSpan(
+                            text: 'Condition of use ',
+                            style: textTheme.labelMedium!.copyWith(color: blue),
+                            ),TextSpan(
+                            text: 'and ',
+                            style: textTheme.labelMedium,
+                            ),TextSpan(
+                            text: 'Privacy Notice ',
+                            style: textTheme.labelMedium!.copyWith(color: blue),
+                            ),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
+
               ],
             ),
-          )
+          ),
+          CommonFunction.blankSpace(height*0.05, 0),
+          Column(children: [
+            Container(
+              height: 1,
+              width: width,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [white,greyShade3,white],
+                ),
+              ),
+            ),
+            CommonFunction.blankSpace(height*0.02, 0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+              Text('Condition of Use',
+              style: textTheme.bodyMedium!.copyWith(
+                color: blue,),),
+              Text('Privacy Notice',
+              style: textTheme.bodyMedium!.copyWith(
+                color: blue,),),
+              Text('Help',
+                style: textTheme.bodyMedium!.copyWith(
+                  color: blue,),),
+            ],
+            ),
+            CommonFunction.blankSpace(height*0.01, 0,),
+            Text('© 1996-2024, Amazon.com, inc. or its affiliates',style: textTheme.labelSmall!.copyWith(color: grey),),
+          ],
+          ),
         ],
       ),
         ),
