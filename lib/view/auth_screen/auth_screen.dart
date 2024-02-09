@@ -87,7 +87,7 @@ class _AuthScreenState extends State<AuthScreen> {
                         child: Icon(
                         Icons.circle,
                         size: height*0.015,
-                        color: inLogin ? secondaryColor: transparent,
+                        color: !inLogin ? secondaryColor: transparent,
                         ),
                       ),
                     ),CommonFunction.blankSpace(0, width*0.02,),
@@ -130,7 +130,7 @@ class _AuthScreenState extends State<AuthScreen> {
                               child: Icon(
                                 Icons.circle,
                                 size: height*0.015,
-                                color: !inLogin ? secondaryColor: transparent,
+                                color: inLogin ? secondaryColor: transparent,
                               ),
                             ),
                           ),CommonFunction.blankSpace(0, width*0.02,),
@@ -149,8 +149,12 @@ class _AuthScreenState extends State<AuthScreen> {
                         children: [
                           InkWell(
                             onTap:(){
-                              showCountryPicker(context: context, onSelect: (val){
-                                currentCountryCode = '+${val.phoneCode}';
+                              showCountryPicker(
+                                  context: context,
+                                  onSelect: (val){
+                                    setState(() {
+                                      currentCountryCode = '+${val.phoneCode}';
+                                    });
                               });
                             },
                             child: Container(
