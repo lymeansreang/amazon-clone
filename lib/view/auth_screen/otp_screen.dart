@@ -51,20 +51,11 @@ class _OTPScreenState extends State<OTPScreen> {
                       fontWeight: FontWeight.w600),
                 ),
                 CommonFunction.blankSpace(height*0.01, 0),
-                Text('${widget.mobileNumber}'),
-                RichText(
-                    text: TextSpan(children: [
-                      TextSpan(
-                      text: '+85512345678',
-                      style: textTheme.bodyMedium!.copyWith(
-                          fontWeight: FontWeight.w600),
-                      ),
-                      TextSpan(
-                        text: ' Change',
-                        style: textTheme.bodyMedium,
-                      )
-                    ],
-                    ),
+                Row(
+                  children: [
+                    Text('${widget.mobileNumber}',style: textTheme.bodyMedium!.copyWith(fontWeight: FontWeight.bold),),
+                    Text(' Change'),
+                  ],
                 ),
                 CommonFunction.blankSpace(height*0.01, 0),
                 Text('We have sent a One Time Password (OTP) to the mobile number above. Please enter it to complete verification',
