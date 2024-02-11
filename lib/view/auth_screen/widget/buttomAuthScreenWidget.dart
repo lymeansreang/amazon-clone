@@ -7,17 +7,16 @@ import '../../../utils/colors.dart';
 class ButtomAuthScreenWidget extends StatelessWidget {
   const ButtomAuthScreenWidget({
     super.key,
-    required this.width,
-    required this.height,
-    required this.textTheme,
+
   });
 
-  final double width;
-  final double height;
-  final TextTheme textTheme;
 
   @override
   Widget build(BuildContext context) {
+    final height = MediaQuery.of(context).size.height;
+    final width = MediaQuery.of(context).size.width;
+    final textTheme = Theme.of(context).textTheme;
+
     return Column(children: [
       Container(
         height: 1,

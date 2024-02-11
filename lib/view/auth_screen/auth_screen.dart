@@ -1,4 +1,5 @@
 import 'package:amazon/constants/common_functions.dart';
+import 'package:amazon/view/auth_screen/widget/btnContinue.dart';
 import 'package:amazon/view/auth_screen/widget/buttomAuthScreenWidget.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
@@ -63,7 +64,7 @@ class _AuthScreenState extends State<AuthScreen> {
               return CreateAccount(width, height, textTheme, context);
             }),
             CommonFunction.blankSpace(height*0.05, 0),
-            ButtomAuthScreenWidget(width: width, height: height, textTheme: textTheme),
+            ButtomAuthScreenWidget(),
           ],
                 ),
         ),
@@ -244,19 +245,7 @@ class _AuthScreenState extends State<AuthScreen> {
                     ),
                     CommonFunction.blankSpace(
                         height*0.02, 0),
-                    ElevatedButton(
-                        onPressed: (){},
-                        style:ElevatedButton.styleFrom(
-                            minimumSize: Size(
-                                width*0.80,
-                                height*0.06,
-                            ),backgroundColor: amber,
-                        ),
-                        child: Text('Continue',
-                      style: textTheme.displaySmall!.copyWith(
-                          fontWeight: FontWeight.w600),
-                        ),
-                    ),
+                    CommonAuthButton(title: 'Continue',btnwidth: 0.88,onPressed: (){},),
                     CommonFunction.blankSpace(height*0.02, 0),
                     RichText(
                       text: TextSpan(
@@ -452,19 +441,7 @@ class _AuthScreenState extends State<AuthScreen> {
                 style: textTheme.bodyMedium,
                 ),
                 CommonFunction.blankSpace(height*0.02, 0,),
-                ElevatedButton(
-                  onPressed: (){},
-                  style:ElevatedButton.styleFrom(
-                    minimumSize: Size(
-                      width*0.80,
-                      height*0.06,
-                    ),backgroundColor: amber,
-                  ),
-                  child: Text('Continue',
-                    style: textTheme.displaySmall!.copyWith(
-                        fontWeight: FontWeight.w600),
-                  ),
-                ),
+                CommonAuthButton(title: 'Continue',btnwidth: 0.88,onPressed: (){},),
                 CommonFunction.blankSpace(height*0.02, 0),
                 RichText(
                   text: TextSpan(
